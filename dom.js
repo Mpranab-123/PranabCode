@@ -1,0 +1,28 @@
+
+console.dir(document);
+console.log(document.domain);
+console.log(document.URL);
+console.log(document.title);
+document.title='Pranab Mishra Item List';
+console.log(document.doctype);
+console.log(document.head);
+console.log(document.body);
+console.log(document.all);
+console.log(document.all[10]);
+document.all[10].textcontent='Hello';
+console.log(document.forms[0]);
+console.log(document.links);
+console.log(document.images);
+var ht=document.getElementById('header-title');
+var header=document.getElementById('main-header');
+console.log(document.ht);
+//ht.textContent='Hello';
+//ht.innerText='Goodbye';
+console.log(ht.innerText);
+ht.innerHTML='<h3>Hello</h3>';
+header.style.borderBottom='solid 3px #000';
+var main=document.getElementsByClassName('title');
+console.log(main);
+console.log(main[0]);
+main[0].style.fontWeight='bold';
+main[0].style.color='green';
