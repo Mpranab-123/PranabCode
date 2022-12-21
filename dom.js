@@ -21,18 +21,31 @@ console.log(document.ht);
 console.log(ht.innerText);
 ht.innerHTML='<h3>Hello</h3>';
 header.style.borderBottom='solid 3px #000';
-var main=document.getElementsByClassName('title');
-console.log(main);
-console.log(main[0]);
-main[0].style.fontWeight='bold';
-main[0].style.color='green';
+//var main=document.getElementsByClassName('title');
+//console.log(main);
+//console.log(main[0]);
+//main[0].style.fontWeight='bold';
+//main[0].style.color='green';
 
 //get element by class name:
-var items=document.getElementsByClassName('list-group-item');
-console.log(items);
-console.log(items[2]);
-items[2].style.backgroundColor= 'green';
-for(var i=0;i<items.length;i++){
-    items[i].style.fontWeight='bold';
-    items[i].style.color='red'
+// var items=document.getElementsByClassName('list-group-item');
+// console.log(items);
+// console.log(items[2]);
+// items[2].style.backgroundColor= 'green';
+// for(var i=0;i<items.length;i++){
+//     items[i].style.fontWeight='bold';
+//      items[i].style.color='red'
+// }
+
+//GET ELEMENTS BY TAG NAME
+var lists=document.getElementsByTagName('li');
+console.log(lists);
+console.log(lists[2]);
+console.log(lists[3]);
+//lists[2].style.backgroundColor= 'green';
+
+for(var i=0;i<lists.length;i++){
+   lists[i].style.fontWeight='bold';
+   lists[i].style.color='red'
+   lists[i].style.backgroundColor='yellow';
 }
