@@ -76,16 +76,75 @@
 // var thirdItem=document.querySelector('.list-group-item:nth-child(3)');
 // thirdItem.style.visibility='hidden';
 
-//QUERRY SELECTOR ALL//
-var secondItem=document.querySelector('li:nth-child(2)');
-secondItem.style.color ='green';
+// //QUERRY SELECTOR ALL//
+// var secondItem=document.querySelector('li:nth-child(2)');
+// secondItem.style.color ='green';
 
-var odd=document.querySelectorAll('li:nth-child(odd)');
-var even=document.querySelectorAll('li:nth-child(even)');
+// var odd=document.querySelectorAll('li:nth-child(odd)');
+// var even=document.querySelectorAll('li:nth-child(even)');
 
-for(var i=0;i<odd.length;i++){
-   odd[i].style.backgroundColor='green'
-}
+// for(var i=0;i<odd.length;i++){
+//    odd[i].style.backgroundColor='green'
+// }
+
+//Travesing the DOM//
+var itemList=document.querySelector('#items');
+//parentElement
+console.log(itemList.parentElement);
+
+//lastelementchild
+console.log(itemList.lastElementChild);
+
+//lastchild
+console.log(itemList.lastChild);
+
+// firstelementchild
+console.log(itemList.firstElementChild);
+
+// firstchild
+console.log(itemList.firstChild);
+// nextsibling
+console.log(itemList.nextSibling);
+// nextelementsibling
+console.log(itemList.nextElementSibling);
+// previoussibling
+console.log(itemList.previousSibling);
+// previouselementsibling
+console.log(itemList.previousElementSibling);
+// createelement
+
+//  create a div
+var newDiv=document.createElement('div')
+
+// Add class
+newDiv.className='Hello';
+
+// Add ID
+newDiv.id='hello1'
+
+// setAttribute
+newDiv.setAttribute('title','Hello Div');
+// createtesxtnode
+var newDivText=document.createTextNode('Hello World');
+// appendchild
+newDiv.appendChild(newDivText);
+var container=document.querySelector('header .container');
+var h1=document.querySelector('header h1');
+
+console.log(newDiv);
+newDiv.style.fontSize='30px';
+//Now go head and add Hello World before Item Lister
+container.insertBefore(newDiv, h1);
+
+// Now go head and add Hello World before Item 1
+
+var parentnode= document.getElementById('items');
+console.log(parentnode.innerHTML);
+
+parentnode.innerHTML= '<li>Hello World</li>'+ parentnode.innerHTML;
+console.log(parentnode.innerHTML);
+
+
 
 
 
