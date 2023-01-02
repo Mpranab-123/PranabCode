@@ -147,12 +147,17 @@
 
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
+var itemdescription= document.getElementById('itemDescription');
 var filter = document.getElementById('filter');
 
 // Form submit event
 form.addEventListener('submit', addItem);
+
+//edit event 
+itemList.addEventListener('click', editItem);
 // Delete event
 itemList.addEventListener('click', removeItem);
+
 // Filter event
 filter.addEventListener('keyup', filterItems);
 
@@ -161,7 +166,9 @@ function addItem(e){
   e.preventDefault();
 
   // Get input value
-  var newItem = document.getElementById('item').value;
+ var newItem = document.getElementById('item').value;
+
+ var newItemdescription = document.getElementById('itemDescription').value;
 
   // Create new li element
   var li = document.createElement('li');
@@ -169,25 +176,37 @@ function addItem(e){
   li.className = 'list-group-item';
   // Add text node with input value
   li.appendChild(document.createTextNode(newItem));
-
-  // Create del button element
-  var deleteBtn = document.createElement('button');
+  li.appendChild(document.createTextNode(newItemdescription));
 //create Edit button element
 var editBtn = document.createElement('button');
+  // Create del button element
+var deleteBtn = document.createElement('button');
+// Add class to edit button
+editBtn.className = 'btn btn-info btn-sm float-right Edit';
   // Add classes to del button
   deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
-// Add class to edit button
-  editBtn.className = 'btn btn-info btn-sm float-right Edit';
   // Append text node
+  editBtn.appendChild(document.createTextNode('Edit'));
   deleteBtn.appendChild(document.createTextNode('X'));
 
   // Append button to li
+  li.appendChild(editBtn);
   li.appendChild(deleteBtn);
+ 
 
   // Append li to list
   itemList.appendChild(li);
 }
 
+//Edit Item
+function editItem(e){
+  if(e.target.classList.contains('Edit')){
+    if(confirm('Are You Sure?')){
+      var li = e.target.parentElement;
+      itemList.editChild(li);
+    }
+  }
+}
 // Remove item
 function removeItem(e){
   if(e.target.classList.contains('delete')){
@@ -198,12 +217,14 @@ function removeItem(e){
   }
 }
 
+
 // Filter Items
 function filterItems(e){
   // convert text to lowercase
   var text = e.target.value.toLowerCase();
   // Get lis
   var items = itemList.getElementsByTagName('li');
+  var itemdes=itemList.getElementsByTagName('li');
   // Convert to an array
   Array.from(items).forEach(function(item){
     var itemName = item.firstChild.textContent;
@@ -211,6 +232,14 @@ function filterItems(e){
       item.style.display = 'block';
     } else {
       item.style.display = 'none';
+    }
+  });
+  Array.from(itemdes).forEach(function(itemDescription){
+    var itemDesc = itemDescription.textContent;
+    if(itemDesc.toLowerCase().indexOf(text) != -1){
+      itemDescription.style.display = 'block';
+    } else {
+      itemDescription.style.display = 'none';
     }
   });
 }
